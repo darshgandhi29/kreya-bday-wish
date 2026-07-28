@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-rose-gold: var(--rose-gold);
+  --font-sans: var(--font-poppins), sans-serif;
+  --font-serif: var(--font-playfair), serif;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Romantic dark theme — deep navy base, soft pink primary, rose gold accent */
+:root {
+  color-scheme: dark;
+  --background: #1a1a2e; /* deep navy */
+  --foreground: #f5eef1; /* soft warm white */
+  --card: #232338;
+  --card-foreground: #f5eef1;
+  --popover: #232338;
+  --popover-foreground: #f5eef1;
+  --primary: #ff6b9d; /* soft pink */
+  --primary-foreground: #1a1a2e;
+  --secondary: #2b2b45;
+  --secondary-foreground: #f5eef1;
+  --muted: #2b2b45;
+  --muted-foreground: #a99aa8;
+  --accent: #e8b4b8; /* rose gold */
+  --accent-foreground: #1a1a2e;
+  --rose-gold: #e8b4b8;
+  --destructive: #e5484d;
+  --border: rgba(232, 180, 184, 0.15);
+  --input: rgba(232, 180, 184, 0.2);
+  --ring: #ff6b9d;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Slowly shifting ambient gradient background */
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.ambient-gradient {
+  background: linear-gradient(
+    130deg,
+    #1a1a2e 0%,
+    #241b36 30%,
+    #2e1a30 55%,
+    #1c1c38 80%,
+    #1a1a2e 100%
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 24s ease-in-out infinite;
+}
+
+/* Heartbeat used by the footer icon and loader */
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.2);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.4s ease-in-out infinite;
+}
+
+/* Pulsing glow for the music button while playing */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 12px 2px rgba(255, 107, 157, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 28px 8px rgba(255, 107, 157, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.8s ease-in-out infinite;
+}
+
+/* Soft floating motion for petals / hearts */
+@keyframes float-up {
+  0% {
+    transform: translateY(105vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-up {
+  animation: float-up linear infinite;
+}
