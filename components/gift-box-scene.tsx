@@ -79,7 +79,7 @@ export function GiftBoxScene() {
 
   return (
     <div className="relative h-[420px] w-full md:h-[520px]">
-      <Canvas camera={{ position: [2.6, 2, 3.2], fov: 45 }} dpr={[1, 1.75]}>
+      <Canvas camera={{ position: [2.8, 2.2, 3.6], fov: 45 }} dpr={[1, 1.75]}>
         <ambientLight intensity={0.9} />
         <pointLight position={[4, 5, 4]} intensity={70} color="#e8b4b8" />
         <pointLight position={[-3, 2, -3]} intensity={35} color="#ff6b9d" />
@@ -93,7 +93,7 @@ export function GiftBoxScene() {
 
         {/* Hidden message revealed when the box opens */}
         {isOpen && (
-          <Html position={[0, 2.4, 0]} center>
+          <Html position={[0, 2.6, 0]} center zIndexRange={[40, 0]}>
             <div className="w-64 rounded-xl border border-accent/30 bg-card/90 p-4 text-center backdrop-blur-md md:w-80">
               <p className="font-serif text-sm leading-relaxed text-foreground md:text-base">{config.hiddenMessage}</p>
             </div>
